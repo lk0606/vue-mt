@@ -11,3 +11,9 @@ export function getBanner () {
     method: 'get'
   })
 }
+export function getNav () {
+  return request({
+    url: '/nav',
+    method: 'get'
+  })
+}

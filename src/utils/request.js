@@ -3,7 +3,7 @@ import qs from 'qs'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://localhost:3000', // api的base_url
+  baseURL: 'http://192.168.31.163:3000', // api的base_url
   timeout: 10000 // request timeout
   // headers: {
   //   'lk-auth': 'lk-admin '
@@ -35,7 +35,7 @@ service.interceptors.request.use(
 )
 // 响应拦截器
 service.interceptors.response.use(
-  res => res,
+  res => res.data,
   err => Promise.reject(err)
 )
 

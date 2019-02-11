@@ -12,7 +12,7 @@ import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 
-import '../public/css/common.css'
+import '../public/css/common.scss'
 import '../public/css/iconfont.css'
 Vue.config.productionTip = false
 

@@ -1,44 +1,42 @@
 <template>
-  <div>
-    <!-- header -->
-    <header class="hd">
-      <div class="hd-top">
-        <div class="hd-left">
-          <img src="img/img-index/position.png" />
-          <span>立人科技园</span>
-          <img src="img/img-index/right.png" />
-        </div>
-        <div class="hd-right">
-          <img src="img/img-index/weather.jpg" />
-          <img src="img/img-index/msg.jpg" />
-        </div>
+  <!-- header -->
+  <header class="hd">
+    <div class="hd-top">
+      <div class="hd-left">
+        <img src="img/img-index/position.png" />
+        <span>立人科技园</span>
+        <img src="img/img-index/right.png" />
       </div>
-      <!--<div class="seach-wrap" style="height: .55rem">-->
-      <div class="seach" >
-        <input type="text" placeholder="沙拉"/>
+      <div class="hd-right">
+        <img src="img/img-index/weather.jpg" />
+        <img src="img/img-index/msg.jpg" />
       </div>
-      <!--</div>-->
+    </div>
+    <!--<div class="seach-wrap" style="height: .55rem">-->
+    <div class="seach" >
+      <input type="text" placeholder="沙拉"/>
+    </div>
+    <!--</div>-->
 
-    </header>
-    <section class="sec">
-      <banner/>
-      <nav/>
-    </section>
-  </div>
+  </header>
 </template>
 
 <script>
-// @ is an alias to /src
-import Banner from '@/components/Banner'
-import Nav from '@/components/Nav'
 export default {
-  name: 'home',
-  components: {
-    Banner,
-    Nav
+  name: 'Head',
+  data () {
+    return {}
+  },
+  methods: {},
+  created () {
+  },
+  mounted () {
+  },
+  updated () {
   }
 }
 </script>
+
 <style lang="scss" scoped>
   header{
     box-sizing: border-box;
@@ -107,7 +105,7 @@ export default {
         outline:none;
         border: 0;
         border-radius: .02rem;
-        background: url(../../public/img/img-index/magnifier.png) no-repeat #fffbef left center;
+        background: url(../../../../public/img/img-index/magnifier.png) no-repeat #fffbef left center;
         background-size: .14rem .14rem;
         background-position: .13rem .095rem;
       }
@@ -117,11 +115,5 @@ export default {
         font-family:"黑体";
       }
     }
-  }
-  section {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 .1rem;
-    margin-top: .15rem;
   }
 </style>

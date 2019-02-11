@@ -61,13 +61,13 @@ export default {
       getBanner().then(
         res => {
           this.swiperSlides = res.data
-          console.log(this.swiperSlides)
+          // console.login(this.swiperSlides)
           this.ready = true
         }
       )
     }
   },
-  created () {
+  mounted () {
     this.getBanner()
   }
 }
@@ -95,7 +95,7 @@ export default {
       background:  no-repeat #ffd161;
     }
     .swiper-container-horizontal>.swiper-pagination-bullets {
-      bottom: -0.11rem;
+      bottom: -0.2rem;
     }
   }
 
