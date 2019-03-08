@@ -1,13 +1,22 @@
+/* eslint-disable */
+
 import axios from 'axios'
 import qs from 'qs'
 
+// const httpAgent = new http.Agent({ keepAlive: true });
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://192.168.31.163:3000', // api的base_url
-  timeout: 10000 // request timeout
+  baseURL: 'http://localhost:3000', // api的base_url
+  timeout: 10000, // request timeout/
   // headers: {
-  //   'lk-auth': 'lk-admin '
-  // }
+  //   // 'lk-auth': 'lk-admin '
+  //   'X-Requested-With': 'XMLHttpRequest',
+  //   'Content-Type': 'application/json'
+  // },
+  proxy: {
+    host: '127.0.0.1',
+    port: 3000
+  }
 })
 
 // 发送请求前对请求数据进行处理
@@ -38,5 +47,4 @@ service.interceptors.response.use(
   res => res.data,
   err => Promise.reject(err)
 )
-
 export default service

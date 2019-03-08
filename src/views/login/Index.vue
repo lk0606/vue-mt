@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <!--header-->
     <header>
       <div class="hd">
+        <img src="img/img-reg-log/exit.png" alt="" @click="back"/>
         <h2>登录美团</h2>
         <router-link to="/reg">
           注册
@@ -68,6 +69,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .container {
+    height: 100%;
+  }
   /*header*/
   header{
     .hd{

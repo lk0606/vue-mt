@@ -141,16 +141,13 @@
         </ul>
       </div>
     </section>
-    <Foot/>
   </div>
 </template>
 
 <script>
-import Foot from './components/Foot'
 export default {
   name: 'Index',
   components: {
-    Foot
   },
   data () {
     return {}

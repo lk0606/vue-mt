@@ -20,7 +20,6 @@
       </router-link>
     </div>
     <Near/>
-    <Foot/>
   </div>
 </template>
 
@@ -32,7 +31,6 @@ import Nav from './components/Nav'
 import CheapBox from './components/CheapBox'
 import Comm from './components/Comm'
 import Near from './components/Near'
-import Foot from './components/Foot'
 import { getNav } from '@/api/index'
 export default {
   name: 'home',
@@ -42,8 +40,7 @@ export default {
     Nav,
     CheapBox,
     Comm,
-    Near,
-    Foot
+    Near
   },
   data () {
     return {
@@ -66,6 +63,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .container {
+    height: 100%;
     padding-bottom: .8rem;
   }
   section {

@@ -14,6 +14,8 @@ export function getBanner () {
 export function getNav () {
   return request({
     url: '/nav',
-    method: 'get'
+    method: 'get',
+    // proxytype: 'socks5',
+    proxy: '192.168.31.163:3000'
   })
 }

@@ -11,10 +11,9 @@ export default new Vuex.Store({
   },
   mutations: {
     SAVEPHONE (state, phoneNum) {
-      // ls.setItem('phoneNum', phoneNum)
-      state.phoneNum = ls.getItem('phoneNum').toString()
-      let s = state.phoneNum
-      console.log(s)
+      ls.setItem('phoneNum', phoneNum)
+      // state.phoneNum = ls.getItem('phoneNum').toString()
+      state.phoneNum = ls.getItem('phoneNum')
     }
   },
   actions: {

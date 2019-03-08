@@ -15,8 +15,7 @@
       <ul class="regord">
         <li v-for="(text, index) in step.value" :key="index">
           <span
-            :class="{ curStep: isCur === index }"
-            href="javascript:void(0);">
+            :class="{ curStep: isCur === index }">
             {{text}}
             <img src="img/img-reg-log/right2.png" />
           </span>
@@ -30,20 +29,23 @@
         <input
           @input="validatePhone( $event )"
           type="text" :placeholder="input.placeholder" maxlength="11" v-model="phoneNum"/>
+        <span class="identifying-code" v-show="showCode">验证码</span>
       </div>
       <!--同意并注册-->
       <div class="read">
         <div  v-show="isCur === 0">
-          <div>
+          <!--<div>-->
             <img :src="checkbox.icon[0]" @click="checkBox( $event )" />
-          </div>
-          <p>
-            我已审慎阅读并同意
-            <span>《美团网用户协议》</span>、
-            <span>《法律声明》</span>、
-            <span>《隐私政策》</span>，
-            接受免除或限制责任、诉讼管辖约定等粗体提示条款。
-          </p>
+          <!--</div>-->
+          <!--<div v-show="true">-->
+            <p  >
+              我已审慎阅读并同意
+              <span>《美团网用户协议》</span>、
+              <span>《法律声明》</span>、
+              <span>《隐私政策》</span>，
+              接受免除或限制责任、诉讼管辖约定等粗体提示条款。
+            </p>
+          <!--</div>-->
         </div>
         <div>
           <input
@@ -54,7 +56,7 @@
       </div>
     </section>
     <!--输入法框-->
-    <aside>
+    <aside v-show="true">
       <!--输入法导航-->
       <ul class="nav">
         <li><img src="img/img-reg-log/sg.png" /></li>
@@ -106,6 +108,7 @@
 
 <script>
 import { validatePhoneNum } from '../../utils/validate'
+import { regUserId } from '@/api/reg'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Index',
@@ -125,10 +128,11 @@ export default {
         style: { backgroundColor: '#f8db97' },
         value: '同意并注册'
       },
-      tips: '验证短信已经发送到',
+      tips: '验证码已经发送到',
       step: {
         value: ['1.输入手机号', '2.输入验证码', '3.设置密码']
-      }
+      },
+      showCode: false
     }
   },
   computed: {
@@ -176,8 +180,15 @@ export default {
         this.isCur = 1
         this.phoneNum = ''
         this.regBtn.value = '提交验证码'
-        this.input.placeholder = '请输入短信中的验证码'
+        this.input.placeholder = '请输入右侧的验证码'
         this.$store.commit('SAVEPHONE', phoneNum)
+        this.showCode = true
+        // 往后台发 regUserId
+        regUserId({ userId: phoneNum }).then(
+          res => {
+            console.log(res)
+          }
+        )
       }
     }
   },
@@ -193,8 +204,9 @@ export default {
 
 <style lang="scss" scoped>
   .container {
+    background: #f0efed;
     /*font-size: 31.25vw;*/
-    background: white;
+    height: 100%;
   }
   /*header*/
   header{
@@ -253,6 +265,7 @@ export default {
     }
     /*电话号码*/
     .phone{
+      position: relative;
       background: white;
       //margin-bottom: .1rem;
       input{
@@ -271,6 +284,12 @@ export default {
         font-size: .14rem;
         color: #c7c7cd;
       }
+      .identifying-code {
+        position: absolute;
+        font-size: .22rem;
+        right: .12rem;
+        top: .09rem;
+      }
     }
     /*同意并注册*/
     .read{
@@ -278,14 +297,16 @@ export default {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      div:nth-of-type(1){
+      >div:nth-of-type(1){
         display: flex;
-        img{
-          width: .16rem;
-          height: .16rem;
-          margin-right: .07rem;
-        }
+          img {
+            width: .16rem;
+            height: .16rem;
+            margin-right: .07rem;
+            flex-shrink: 0;
+          }
         p{
+          /*flex: 1;*/
           font-size: .14rem;
           color: #999;
           line-height: .19rem;
@@ -296,7 +317,7 @@ export default {
         }
 
       }
-      div:nth-of-type(2){
+      >div:nth-of-type(2){
         margin-top: .1rem;
         display: flex;
         padding: .04rem 0rem;
@@ -322,6 +343,7 @@ export default {
     position: fixed;
     bottom: 0;
     .nav{
+      background: #fff;
       padding: .07rem 0rem;
       border-top: 1px solid #acaaae;
       border-bottom:  1px solid #acaaae;
@@ -406,11 +428,9 @@ export default {
         }
       }
       .key-mid{
-
         //padding-bottom: .07rem;
         //margin-left: .05rem;
         ul{
-
           height: 2.2rem;
           //width: 2.13rem;
           width: 2.4rem;

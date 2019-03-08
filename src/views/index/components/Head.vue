@@ -4,7 +4,7 @@
     <div class="hd-top">
       <div class="hd-left">
         <img src="img/img-index/position.png" />
-        <span>立人科技园</span>
+        <span>选择位置</span>
         <img src="img/img-index/right.png" />
       </div>
       <div class="hd-right">
@@ -24,6 +24,8 @@
 <script>
 export default {
   name: 'Head',
+  components: {
+  },
   data () {
     return {}
   },

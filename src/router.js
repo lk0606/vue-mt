@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/index/Index.vue'
 
 Vue.use(Router)
 
@@ -8,8 +7,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      // name: 'foot',
+      component: () => import('@/components/Foot.vue'),
+      redirect: '/index',
+      children: [
+        { path: 'index', name: 'index', component: () => import('@/views/index/Index.vue') },
+        {
+          path: 'ord',
+          name: 'ord',
+          component: () => import('@/views/ord/Index.vue'),
+          meta: { title: '订单', noCache: false }
+        },
+        { path: 'me', name: 'me', component: () => import('@/views/me/Index.vue') }
+      ]
     },
     {
       path: '/nav',
@@ -27,11 +37,6 @@ export default new Router({
       component: () => import('@/views/shop/Index.vue')
     },
     {
-      path: '/ord',
-      name: 'ord',
-      component: () => import('@/views/ord/Index.vue')
-    },
-    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/login/Index.vue')
@@ -42,9 +47,14 @@ export default new Router({
       component: () => import('@/views/reg/Index.vue')
     },
     {
-      path: '/me',
-      name: 'me',
-      component: () => import('@/views/me/Index.vue')
+      path: '/map',
+      name: 'map',
+      component: () => import('@/components/Map.vue')
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: () => import('@/components/Table.vue')
     }
   ]
 })

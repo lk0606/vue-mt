@@ -13,16 +13,13 @@
         <router-link to="/login">登录/注册</router-link>
       </div>
     </section>
-    <Foot/>
   </div>
 </template>
 
 <script>
-import Foot from './components/Foot'
 export default {
   name: 'Index',
   components: {
-    Foot
   },
   data () {
     return {}
@@ -38,7 +35,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .container {
+  .container{
+    height: 100%;
     letter-spacing: .005rem;
   }
   /*header*/
