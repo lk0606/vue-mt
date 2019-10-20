@@ -11,10 +11,16 @@ export default new Router({
       component: () => import('@/components/Foot.vue'),
       redirect: '/index',
       children: [
-        { path: 'index', name: 'index', component: () => import('@/views/index/Index.vue') },
+        {
+          path: 'index',
+          name: 'index',
+          hidden: true,
+          component: () => import('@/views/index/Index.vue')
+        },
         {
           path: 'ord',
           name: 'ord',
+          hidden: true,
           component: () => import('@/views/ord/Index.vue'),
           meta: { title: '订单', noCache: false }
         },

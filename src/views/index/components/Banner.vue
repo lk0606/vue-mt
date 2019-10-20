@@ -24,6 +24,9 @@ export default {
       // required, use to ensure init done
       ready: false,
       swiperOption: {
+        // direction: 'vertical',
+        // height: window.innerHeight,
+        // slidesPerView: 3,
         // load do something
         // notNextTick: true,
         // 修改swiper的子元素时，自动初始化swiper

@@ -9,9 +9,10 @@ module.exports = {
     open: false,
     // proxy: {
     //   '/api': {
-    //     target: 'http://192.168.31.163:3000',
+    //     // target: 'http://192.168.3.105:3000',
+    //     target: 'http://localhost:3000',
     //     ws: true,
-    //     changeOrigin: true, // 跨域
+    //     changeOrigin: false, // 跨域
     //     pathRewrite: {
     //       '^/api': '/', // rewrite path
     //     },

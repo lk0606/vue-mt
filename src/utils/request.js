@@ -7,16 +7,13 @@ import qs from 'qs'
 // create an axios instance
 const service = axios.create({
   baseURL: 'http://localhost:3000', // api的base_url
+  // baseURL: '/api', // api的base_url
   timeout: 10000, // request timeout/
   // headers: {
   //   // 'lk-auth': 'lk-admin '
   //   'X-Requested-With': 'XMLHttpRequest',
   //   'Content-Type': 'application/json'
   // },
-  proxy: {
-    host: '127.0.0.1',
-    port: 3000
-  }
 })
 
 // 发送请求前对请求数据进行处理

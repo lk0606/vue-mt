@@ -58,7 +58,13 @@ export default {
   },
   created () {
     this.getNav()
-  }
+  },
+  mounted () {
+    console.log(this.$route)
+  },
+  // beforeRouteLeave (to, from, next) {
+    // console.log(to, from, next)
+  // }
 }
 </script>
 <style lang="scss" scoped>
